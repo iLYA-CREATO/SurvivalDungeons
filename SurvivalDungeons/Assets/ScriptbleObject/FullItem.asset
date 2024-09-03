@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7b42e5f654a6c24ea39cb2801c18323, type: 3}
   m_Name: FullItem
   m_EditorClassIdentifier: 
-  allItemArmors:
+  ItemArmorsHelmet:
   - {fileID: 11400000, guid: 5b2d34eff995e194088768e4e3991712, type: 2}
-  - {fileID: 11400000, guid: 3ae962f4ec62fc544bfe20225506db66, type: 2}
+  ItemArmorsBib:
   - {fileID: 11400000, guid: c1534ea316804a0459e1654aad0e42eb, type: 2}
+  ItemArmorsTrousers:
   - {fileID: 11400000, guid: 12bbd4f81525f234c8fd9484f12f24c8, type: 2}
+  ItemArmorsBoots:
+  - {fileID: 11400000, guid: 3ae962f4ec62fc544bfe20225506db66, type: 2}

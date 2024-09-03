@@ -9,7 +9,9 @@ public class InventoryPlayer : MonoBehaviour
     // Это сообщение о том что мы добавили какойто предмет и передаём данные этого предмета
     public static event Action<DataItem> OnInventoryAddView;
 
-    public List<DataItem> dataItem;
+    [SerializeField]
+    [Header("Все Item которые есть у игрока")]
+    private List<DataItem> dataItem;
 
 
     private void OnEnable()
