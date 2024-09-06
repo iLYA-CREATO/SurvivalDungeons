@@ -11,6 +11,8 @@ public class SelectItemArmor : MonoBehaviour
     private Image icon;
 
     #region -- Данные которые можем получить из карточки
+
+    public DataItem dataItem;
     public GameObject itemObject;
     [Header("Сам Item:")] public ItemArmor itemArmor;
 
@@ -31,6 +33,10 @@ public class SelectItemArmor : MonoBehaviour
     #endregion
     public void Start()
     {
+        FillCard();
+    }
+    private void FillCard()
+    {
         // Тут будем заполнять все нужные данные 
         itemObject = gameObject; // Заполняем сами собой
         icon.sprite = iconArmor;
@@ -39,7 +45,6 @@ public class SelectItemArmor : MonoBehaviour
         // Добавим стартовую возможность для открытия первой информационной панели
         gameObject.GetComponent<Button>().onClick.AddListener(OpenInfoPanel);
     }
-
     public void OpenInfoPanel()
     {
         infoPanel.SetActive(true);

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "ItemArmor", menuName = "ScriptableObjects/ItemArmor")]
 public class ItemArmor : ScriptableObject
@@ -12,7 +11,7 @@ public class ItemArmor : ScriptableObject
 
     [Header("Название:")] public string nameItem;
 
-    [Header("Стоиость продажи:")] public int pricePurchase;
+    [Header("Стоиость покупки:")] public int pricePurchase;
     [Header("Стоиость продажи:")] public int priceSale;
     [Header("Кол-во брони:")]public int protection;
 

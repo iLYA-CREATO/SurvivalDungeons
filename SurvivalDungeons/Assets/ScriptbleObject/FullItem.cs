@@ -7,7 +7,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "FullItem", menuName = "ScriptableObjects/FullItem")]
 public class FullItem : ScriptableObject
 {
-    
     [Header("Шлемы")] public List<ItemArmor> ItemArmorsHelmet;
     [Header("Нагрудники")] public List<ItemArmor> ItemArmorsBib;
     [Header("Штаны")] public List<ItemArmor> ItemArmorsTrousers;

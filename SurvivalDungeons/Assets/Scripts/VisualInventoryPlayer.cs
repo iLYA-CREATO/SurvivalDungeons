@@ -34,6 +34,7 @@ public class VisualInventoryPlayer : MonoBehaviour
         selectItemArmor = ItemCellBuffer.GetComponent<SelectItemArmor>();
 
         // заполняем нужные данные
+        selectItemArmor.dataItem = dataItem;
         selectItemArmor.typeArmor = dataItem.typeArmor;
         selectItemArmor.itemArmor = dataItem.itemArmor;
         selectItemArmor.iconArmor = dataItem.iconArmor;
@@ -41,6 +42,4 @@ public class VisualInventoryPlayer : MonoBehaviour
         selectItemArmor.isEquipped = dataItem.isEquipped;
         selectItemArmor.infoPanel = infoPanel;
     }
-
-
 }

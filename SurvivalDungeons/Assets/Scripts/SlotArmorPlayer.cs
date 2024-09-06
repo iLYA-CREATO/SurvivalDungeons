@@ -11,6 +11,9 @@ public class SlotArmorPlayer : MonoBehaviour
     public GameObject slotTrousers;
     public GameObject slotBoots;
 
+
+    public GameObject inventory;
+
     public bool isSlotHelmet;
     public bool isSlotBib;
     public bool isSlotTrousers;
@@ -32,7 +35,7 @@ public class SlotArmorPlayer : MonoBehaviour
             case TypeArmor.Helmet:
                 if(isSlotHelmet != true)
                 {
-                    Move(slotHelmet, itemObject);
+                    MoveToCell(slotHelmet, itemObject, true);
                     isSlotHelmet = true;
                 }
                 else
@@ -43,7 +46,7 @@ public class SlotArmorPlayer : MonoBehaviour
             case TypeArmor.Bib:
                 if (isSlotBib != true)
                 {
-                    Move(slotBib, itemObject);
+                    MoveToCell(slotBib, itemObject, true);
                     isSlotBib = true;
                 }
                 else
@@ -54,7 +57,7 @@ public class SlotArmorPlayer : MonoBehaviour
             case TypeArmor.Trousers:
                 if (isSlotTrousers != true)
                 {
-                    Move(slotTrousers, itemObject);
+                    MoveToCell(slotTrousers, itemObject, true);
                     isSlotTrousers = true;
                 }
                 else
@@ -65,7 +68,7 @@ public class SlotArmorPlayer : MonoBehaviour
             case TypeArmor.Boots:
                 if (isSlotBoots != true)
                 {
-                    Move(slotBoots, itemObject);
+                    MoveToCell(slotBoots, itemObject, true);
                     isSlotBoots = true;
                 }
                 else
@@ -76,10 +79,81 @@ public class SlotArmorPlayer : MonoBehaviour
         }
     }
 
-    private void Move(GameObject slot, GameObject itemObject)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="slot">Куда</param>
+    /// <param name="itemObject">Откуда и что</param>
+    private void MoveToCell(GameObject slot, GameObject itemObject, bool isBool)
     {
         cloused._ClousePanel(infoPanel); // Закрываем окно информации о карточке
+
         itemObject.transform.SetParent(slot.transform);
         itemObject.transform.position = slot.transform.position;
+
+        GetParametrs(itemObject, isBool);
+    }
+    public void RemoveToInventory(TypeArmor typeArmor, Transform item, Transform inventory)
+    {
+        cloused._ClousePanel(infoPanel); // Закрываем окно информации о карточке
+        
+
+        switch (typeArmor)
+        {
+            case TypeArmor.Helmet:
+                if (isSlotHelmet == true)
+                {
+                    item.SetParent(inventory);
+                    item.position = inventory.position;
+
+                    GetParametrs(item.gameObject, false);
+                    isSlotHelmet = false;
+                }
+                break;
+            case TypeArmor.Bib:
+                if (isSlotBib == true)
+                {
+                    item.SetParent(inventory);
+                    item.position = inventory.position;
+
+                    GetParametrs(item.gameObject, false);
+                    isSlotBib = false;
+                }
+                break;
+            case TypeArmor.Trousers:
+                if (isSlotTrousers == true)
+                {
+                    item.SetParent(inventory);
+                    item.position = inventory.position;
+
+                    GetParametrs(item.gameObject, false);
+                    isSlotTrousers = false;
+                }
+                break;
+            case TypeArmor.Boots:
+                if (isSlotBoots == true)
+                {
+                    item.SetParent(inventory);
+                    item.position = inventory.position;
+
+                    GetParametrs(item.gameObject, false);
+                    isSlotBoots = false;
+                }
+                break;
+        }
+    }
+
+    public void GetParametrs(GameObject itemObject, bool isBool)
+    {
+        itemObject.GetComponent<SelectItemArmor>().dataItem.isEquipped = isBool;
+        itemObject.GetComponent<SelectItemArmor>().isEquipped = isBool;
+    }
+
+
+
+
+    private void MoveToChange()
+    {
+
     }
 }

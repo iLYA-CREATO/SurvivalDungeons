@@ -11,7 +11,7 @@ public class InventoryPlayer : MonoBehaviour
 
     [SerializeField]
     [Header("¬се Item которые есть у игрока")]
-    private List<DataItem> dataItem;
+    public List<DataItem> dataItem;
 
 
     private void OnEnable()
@@ -29,7 +29,7 @@ public class InventoryPlayer : MonoBehaviour
     private void AddItemInventory(ItemArmor _itemArmor)
     {
 
-        //  —оздаЄм экземпл€р нового Item и заполн€ем его данными
+        // —оздаЄм экземпл€р нового Item и заполн€ем его данными
         DataItem newItem = new DataItem()
         { 
             itemArmor = _itemArmor,
@@ -45,8 +45,11 @@ public class InventoryPlayer : MonoBehaviour
         };
 
         // ј вот тут уже добавл€ем в на список
+
         dataItem.Add(newItem);
+
         // —ообщ€ем слушител€м что что-то изменилось 
+
         OnInventoryAddView?.Invoke(newItem);
     }
 }
